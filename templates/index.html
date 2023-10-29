@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Captcha Display</title>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-app">
+        <h1>Select a Captcha Type:</h1>
+        <div class="radio_p">
+            <input type="radio" name="captchaType" value="image" checked>
+            <p>Image Captcha</p>
+        </div>
+        <div class="radio_p">
+            <input type="radio" name="captchaType" value="audio">
+            <p>Audio Captcha</p>
+        </div>
+        <h1>Check captcha:</h1>
+
+        <div class="captchaContainer" >
+            <div class="main-captchaContainer">
+                <input type="checkbox">
+                <p style="margin-left:.4rem">Tôi là con người</p>
+
+                <div class="captchaPopup" >
+                    <div class="main-captchaPopup">
+                        <button class="closeCaptcha"> Cancel </button>
+                        <p>Captcha:</p>
+                        <div class="captchaDisplay">
+                        </div>
+
+                        <input type="text" class="captchaInput" placeholder="Enter captcha">
+                        <button type="submit"> Submit </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+<!--    <script src="../static/script.js"></script>-->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
