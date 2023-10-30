@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 <!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/themify-icons//themify-icons.css') }}">
 </head>
 <body>
     <div class="main-app">
@@ -22,17 +23,22 @@
         <div class="captchaContainer" >
             <div class="main-captchaContainer">
                 <input type="checkbox">
-                <p style="margin-left:.4rem">Tôi là con người</p>
+                <svg class="spinner" viewBox="0 0 50 50">
+                  <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                </svg>
+                <p style="margin-left:.4rem">I am a human</p>
 
-                <div class="captchaPopup" >
+                <div class="captchaPopup">
                     <div class="main-captchaPopup">
-                        <button class="closeCaptcha"> Cancel </button>
+                        <button class="closeCaptcha"> <i class="ti-close" style="font-size:1.4rem"></i> </button>
                         <p>Captcha:</p>
                         <div class="captchaDisplay">
                         </div>
-
-                        <input type="text" class="captchaInput" placeholder="Enter captcha">
-                        <button type="submit"> Submit </button>
+                        <div style="display: flex; justify-content: space-between; margin-bottom:0.5rem;">
+                            <button class="reloadCaptcha"> <i class="ti-reload"></i> </button>
+                            <input type="text" class="captchaInput" placeholder="Enter captcha">
+                            <button type="submit"> Submit </button>
+                        </div>
                     </div>
                 </div>
 

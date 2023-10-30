@@ -7,6 +7,7 @@
 html {
     box-sizing: border-box;
     line-height: 1.6;
+    font-size: 120%;
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
 }
@@ -17,10 +18,16 @@ body {
     justify-content: start;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(to bottom right, #484874, #3a3a61, #0f102b);
 }
 
 .main-app{
-
+     background: rgba(15,16,43,0.8);
+     padding: 2rem;
+     border-radius: 1rem;
+     color: lightgray;
+     border: 0.2rem solid #588157;
+     margin-top: 0.4rem;
 }
 
 .radio_p {
@@ -40,12 +47,13 @@ input[type="radio"] {
 .captchaContainer {
     display: flex;
     align-items: center;
-    background: lightblue;
-    border-radius: 4px;
-    border: 0.1rem solid black;
+    background: #5B2A86;
+    border-radius: 0.4rem;
+    border: 0.1rem solid lightblue;
     width: 20rem;
     height: 8rem;
     position: relative;
+    color: #A5E6BA;
 }
 
 .main-captchaContainer{
@@ -55,29 +63,34 @@ input[type="radio"] {
 
 input[type="checkbox"] {
     width: 3rem;
+    height: auto;
     margin-left: 1rem;
 }
 
 .captchaPopup {
     display: none;
     position: absolute;
-    width: 120%;
+    width: 130%;
     left: -10%;
     top: 70%;
-    background: lightgray;
-    border: .1rem solid black;
+    background: #FFECD1;
+    border-radius: 0.7rem;
+    border: .3rem solid #FF7D00;
 }
 
 .captchaPopup::before {
     content: "";
     border-width: 1.2rem 1.6rem;
     border-style: solid;
-    border-color: transparent transparent lightgray transparent;
-    top: -2.2rem;
-    left: 2.8rem;
+    border-color: transparent transparent #FF7D00; transparent;
+    top: -2.4rem;
+    left: 2.6rem;
     position: absolute;
 }
 
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
 input[type="checkbox"]:hover .captchaPopup{
     display: block;
 }
@@ -86,30 +99,55 @@ input[type="checkbox"]:hover .captchaPopup{
     width: 90%;
     margin: 0 auto;
     position: relative;
+    color: #78290F;
+    font-weight: bold;
 }
 
 .closeCaptcha {
     position: absolute;
+    border: none;
+    color: black;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.1rem;
     top:0;
-    right:-5%;
+    right:-5.7%;
+    background: #7785AC;
+    border-left: 0.1rem solid black;
+    border-bottom: 0.1rem solid black;
+    border-top-right-radius: 0.4rem;
 }
 
+.reloadCaptcha{
+    width: 8%;
+}
+.ti-reload {
+    font-size: 1.4rem;
+}
+
+.reloadCaptcha:hover,
+.closeCaptcha:hover {
+    color: blue;
+    cursor: pointer;
+}
 
 .captchaDisplay {
     width: 100%;
+    height:auto;
+    display: flex;
+    text: center;
+    border: 1px solid black;
+    margin-bottom: 0.5rem;
 }
 
 input[type="text"] {
-    width:70%;
-    margin-bottom: 0.5rem;
-    display: inline;
+    width:65%;
     height: 2rem;
     font-size: 1.5rem;
 }
 
 button[type='submit'] {
     width: 25%;
-    display: inline;
     height: 2rem;
     font-size: 1.5rem;
 }
@@ -118,3 +156,36 @@ audio {
     background-color: #f1f3f4;
 }
 
+.spinner {
+    display: none;
+    animation: rotate 2s linear infinite;
+    height: 2rem;
+    width: 3rem;
+    margin-left: 1rem;
+    & .path {
+    stroke: rgb(0, 255, 255);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+      0% {
+          stroke-dasharray: 1, 150;
+          stroke-dashoffset: 0;
+      }
+      50% {
+          stroke-dasharray: 90, 150;
+          stroke-dashoffset: -35;
+      }
+      100% {
+          stroke-dasharray: 90, 150;
+          stroke-dashoffset: -124;
+      }
+}
